@@ -1,0 +1,30 @@
+<h1>Citabox</h1>
+<p>Bienvenue dans Citabox !</p>
+<%= flash[:info] %>
+
+<% if @current_user %>
+  <p>Inscris comme <%= @current_user.username %></p>
+  <%= link_to 'Se deconnecter', action: 'disconnect' %>
+<% else %>
+	<p>Se connecter</p>
+	<%= form_tag "/pages/login", method: :post do %>
+		<input type="text" name="username" placeholder="nom d'utilisateur">
+		<input type="password" name="password" placeholder="mot de passe">
+	    <input type="submit" value="Se connecter">
+	<% end %>
+<% end %>
+
+<h2>Citations :</h2>
+
+<%= link_to 'Nouvelle citation', action: "create" %>
+
+<% if @quotes %>
+	<% @quotes.each do |quote| %>
+		<p><%= quote.content %></p>
+		<p>posté par <%= quote.user.username %></p>
+		<%= link_to 'Modifier', "/pages/#{quote.id}" %>
+		<br/>
+	<% end %>
+<% end %>
+
+
