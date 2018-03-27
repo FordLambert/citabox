@@ -1,24 +1,8 @@
 # README
+#Ruby 2.3.0
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+-- Work in progress --
 
-Things you may want to cover:
+This is a little exercice for practicing Ruby on Rails, a application where you can create and manage your account, post and edit quotes.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The more I'll learn, the more it'll do.
