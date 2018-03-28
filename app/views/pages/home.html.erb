@@ -1,18 +1,5 @@
-<%= flash[:info] %>
 
-<% if @current_user %>
-  <p>Inscris comme <%= link_to @current_user.username, "/users/#{@current_user.id}" %></p>
-  <%= link_to 'Se deconnecter', '/pages/disconnect' %>
-<% else %>
-	<p>Se connecter</p>
-	<%= form_tag "/pages/login", method: :post do %>
-		<input type="text" name="username" placeholder="nom d'utilisateur">
-		<input type="password" name="password" placeholder="mot de passe">
-	    <input type="submit" value="Se connecter">
-	<% end %>
-<% end %>
-
-<h2>Citations :</h2>
+<h3>Citations :</h3>
 
 <% if @current_user %>
 	<%= link_to 'Nouvelle citation', '/pages/create' %>

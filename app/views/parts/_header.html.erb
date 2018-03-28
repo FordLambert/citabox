@@ -1,4 +1,34 @@
 <header class="col-12">
-	<h1>Citabox</h1>
-	<h2>La boite à citations inutiles</h2>
+	<div class="row justify-content-end">
+        <div class="col-12">
+
+    	    <% if @current_user %>
+    	        <p>
+    	        	Connecté comme 
+                    <%= link_to @current_user.username, "/users/#{@current_user.id}" %>
+    	        </p>
+    	        <%= link_to "Se deconnecter", "/pages/disconnect" %>
+
+    	    <% else %>
+                <div class="col-6 align-items-center login-form">
+        	        <%= form_tag "/pages/login", method: :post do %>
+                        <div class="row justify-content-around">
+                            <input type="text" name="username" placeholder="nom d'utilisateur" class="col-4 form-control">
+                            <input type="password" name="password" placeholder="mot de passe" class="col-4 form-control">
+                            <input type="submit" value="Se connecter" class="col-3 btn btn-primary">
+                        </div>
+        		    <% end %>
+                    <%= flash[:info] %>
+                </div>
+    	    <% end %>
+
+        </div>
+    </div>
+
+    <div class="row text-center align-items-center">
+        <div class="col-12">
+	       <h1>Citabox</h1>
+	       <h2>La boite à citations inutiles</h2>
+       </div>
+	</div>
 </header>
