@@ -1,11 +1,9 @@
 class PagesController < ApplicationController
 
   before_action :get_quote, only: [:update, :edit, :destroy]
+  before_action :get_current_user, only: [:home, :edit, :create]
 
   def home
-  	if session[:user_id]
-  	  @current_user = User.find(session[:user_id])
-  	end
   	@quotes = Quote.all
   end
 
@@ -59,6 +57,12 @@ class PagesController < ApplicationController
 
   def get_quote
   	@quote = Quote.find(params[:id])
+  end
+
+  def get_current_user
+    if session[:user_id]
+      @current_user = User.find(session[:user_id])
+    end
   end
 
 end

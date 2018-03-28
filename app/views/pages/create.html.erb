@@ -1,8 +1,13 @@
-<h1>Bienvenue dans create bitch</h1>
+<% if !@current_user %>
+	<p>Désolé, cette page est reservée aux utilisateurs enregistrés</p>
 
-<p>Rentrez votre chef d'oeuvre d'inspiration</p>
+<% else %>
+	<h1>Bienvenue dans create bitch</h1>
 
-<%= form_tag "/pages/create", method: :post do %>
-  <textarea rows="5" name="content" placeholder="Votre citation"></textarea>
-  <input type="submit" value="Poster">
+	<p>Rentrez votre chef d'oeuvre d'inspiration</p>
+
+	<%= form_tag "/pages/create", method: :post do %>
+	  <textarea rows="5" name="content" placeholder="Votre citation"></textarea>
+	  <input type="submit" value="Poster">
+	<% end %>
 <% end %>

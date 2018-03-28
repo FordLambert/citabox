@@ -1,10 +1,15 @@
-<h1>Modifier votre citation ?</h1>
+<% if !@current_user %>
+	<p>Désolé, cette page est reservée aux utilisateurs enregistrés</p>
 
-<%= form_tag "/pages/#{@quote.id}", method: "patch" do  %>
-	<textarea rows="5" name="content"><%= @quote.content %></textarea>
-	<input type="submit" name="Mettre à jour">
-<% end %>
+<% else %>
+	<h1>Modifier votre citation ?</h1>
 
-<%= form_tag "/pages/#{@quote.id}", method: "delete" do %>
-  <input type="submit" value="Supprimer">
+	<%= form_tag "/pages/#{@quote.id}", method: "patch" do  %>
+		<textarea rows="5" name="content"><%= @quote.content %></textarea>
+		<input type="submit" name="Mettre à jour">
+	<% end %>
+
+	<%= form_tag "/pages/#{@quote.id}", method: "delete" do %>
+	  <input type="submit" value="Supprimer">
+	<% end %>
 <% end %>
