@@ -1,0 +1,11 @@
+<% if !@user %>
+	<p>Pas d'utilisateur séléctionné</p>
+<% else %>
+	<h1>Profil de <%= @user.username %></h1>
+
+	<% if @user.role == "admin" %>
+		<p>Rôle: Administrateur</p>
+	<% else %>
+		<p>Rôle: Utilisateur du site</p>
+	<% end %>
+<% end %>

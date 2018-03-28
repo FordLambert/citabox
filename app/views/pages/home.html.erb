@@ -3,7 +3,7 @@
 <%= flash[:info] %>
 
 <% if @current_user %>
-  <p>Inscris comme <%= @current_user.username %></p>
+  <p>Inscris comme <%= link_to @current_user.username, "/users/#{@current_user.id}" %></p>
   <%= link_to 'Se deconnecter', '/pages/disconnect' %>
 <% else %>
 	<p>Se connecter</p>
@@ -24,8 +24,8 @@
 
 <% if @quotes %>
 	<% @quotes.each do |quote| %>
-		<p><%= quote.content %></p>
-		<p>posté par <%= quote.user.username %></p>
+		<p>"<%= quote.content %>"</p>
+		<p>posté par <%= link_to quote.user.username, "/users/#{quote.user.id}" %></p>
 
 		<% if @current_user %>
 			<% if quote.user == @current_user || @current_user.role == "admin" %>

@@ -10,9 +10,6 @@ class PagesController < ApplicationController
   def create
   end
 
-  def show
-  end
-
   def update
     @quote.content = params[:content]
     @quote.save
