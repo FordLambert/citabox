@@ -1,25 +1,45 @@
+<section class="row">
+    <div class="col-12">
 
-<h3>Citations :</h3>
+        <div class="row justify-content-around text-center">
+            <div class="col-12"> 
+                <h3>Citations :</h3>
+            </div>
 
-<% if @current_user %>
-	<%= link_to 'Nouvelle citation', '/pages/create' %>
-<% else %>
-	<p>connectez vous pour rajouter des citations</p>
-<% end %>
+            <div class="col-4">
+                <% if @current_user %>
+                	<%= link_to 'Nouvelle citation', '/pages/create' %>
+                <% else %>
+                	<p>connectez vous pour rajouter des citations</p>
+                <% end %>
+            </div>
+        </div>
 
-<% if @quotes %>
-	<% @quotes.each do |quote| %>
-		<p>"<%= quote.content %>"</p>
-		<p>posté par <%= link_to quote.user.username, "/users/#{quote.user.id}" %></p>
+        <div class="row justify-content-around">
 
-		<% if @current_user %>
-			<% if quote.user == @current_user || @current_user.role == "admin" %>
-				<%= link_to 'Modifier', "/pages/#{quote.id}" %>
-			<% end %>
-		<% end %>
+            <% if @quotes %>
+            	<% @quotes.each do |quote| %>
 
-		<br/>
-	<% end %>
-<% end %>
+                    <div class="quote-box col-8">
+                		<p class="quote-text">"<%= quote.content %>"</p>
+                		<p>
+                            posté par 
+                            <%= link_to quote.user.username, "/users/#{quote.user.id}" %>
+                        </p>
 
+                		<% if @current_user %>
+                			<% if quote.user == @current_user || @current_user.role == "admin" %>
+                				<%= link_to 'Modifier', "/pages/#{quote.id}" %>
+                			<% end %>
+                		<% end %>
+                    </div>
 
+            	<% end %>
+            <% else %>
+                <p>Pas de citations à afficher</p>
+            <% end %>
+
+        </div>
+
+    </div>
+</section>

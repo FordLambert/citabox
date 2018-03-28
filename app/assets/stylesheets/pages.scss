@@ -13,6 +13,8 @@ body {
 
 header {
 	background-color: #4C7091;
+    border: 2px, solid, black;
+    border-radius: 10px;
 
     h1, h2 {
         margin-top: 2vh;
@@ -26,5 +28,28 @@ header {
 
     .login-form {
         margin-top: 2vh;
+    }
+}
+
+section {
+    margin-top: 4vh;
+
+    h3 {
+        color: #E15D32;
+        font-size: 2em;
+    }
+
+    .quote-box {
+        background-color: #4C7091;
+        border: 1px, solid, black;
+        border-radius: 10px;
+        margin-top: 4vh;
+        padding: 1vh;
+        text-align: right;
+
+        .quote-text {
+            text-align: center;
+            font-size: 1.4em;
+        }
     }
 }

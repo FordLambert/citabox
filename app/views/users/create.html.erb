@@ -1,0 +1,7 @@
+<h1>Créer un compte</h1>
+
+<%= form_tag "/users/create", method: :post do %>
+    <input type="text" name="username" placeholder="votre pseudo">
+    <input type="password" name="password" placeholder="votre mot de passe">
+    <input type="submit" value="Créer le compte">
+<% end %>

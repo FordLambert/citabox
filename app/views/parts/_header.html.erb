@@ -3,19 +3,24 @@
         <div class="col-12">
 
     	    <% if @current_user %>
-    	        <p>
-    	        	Connecté comme 
-                    <%= link_to @current_user.username, "/users/#{@current_user.id}" %>
-    	        </p>
-    	        <%= link_to "Se deconnecter", "/pages/disconnect" %>
+                <div class="col-6 align-items-center">
+        	        <p>
+        	        	Connecté en tant que 
+                        <%= link_to @current_user.username, "/users/#{@current_user.id}" %>
+        	        </p>
+        	        <p>
+                        <%= link_to "Se deconnecter", "/pages/disconnect" %>
+                    </p>
+                </div>
 
     	    <% else %>
-                <div class="col-6 align-items-center login-form">
+                <div class="col-12 align-items-center login-form">
         	        <%= form_tag "/pages/login", method: :post do %>
                         <div class="row justify-content-around">
-                            <input type="text" name="username" placeholder="nom d'utilisateur" class="col-4 form-control">
-                            <input type="password" name="password" placeholder="mot de passe" class="col-4 form-control">
-                            <input type="submit" value="Se connecter" class="col-3 btn btn-primary">
+                            <input type="text" name="username" placeholder="nom d'utilisateur" class="col-3 form-control">
+                            <input type="password" name="password" placeholder="mot de passe" class="col-3 form-control">
+                            <input type="submit" value="Se connecter" class="col-2 btn btn-primary">
+                            <%= link_to "Créer un compte", "/users/create", class: "col-2 btn btn-warning" %>
                         </div>
         		    <% end %>
                     <%= flash[:info] %>

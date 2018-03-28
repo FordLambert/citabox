@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   get 'pages/disconnect' => 'pages#disconnect'
   get 'pages/:id'  => 'pages#edit'
 
+  get 'users/create' => 'users#create'
   get 'users/:id' => 'users#show', as: 'profil'
 
 
   post 'pages/login' => 'pages#login'
   post 'pages/create' => 'pages#add_quote'
+
+  post 'users/create' => 'users#add_user'
 
   delete 'pages/:id' => 'pages#destroy'
 
