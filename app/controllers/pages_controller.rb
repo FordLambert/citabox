@@ -33,23 +33,6 @@ class PagesController < ApplicationController
   	redirect_to "/pages/home"
   end
 
-  def login
-  	@current_user = User.where(username: params[:username], password: params[:password]).first
-  	if @current_user
-  		session[:user_id] = @current_user.id
-  		flash[:info] = "Content de vous voir #{@current_user.username} !"
-  		redirect_to "/pages/home"
-  	else
-  		flash[:info] = "Erreur de connection mon brave."
-  		redirect_to "/pages/home"
-  	end
-  end
-
-  def disconnect
-  	session[:user_id] = nil
-  	redirect_to "/pages/home"
-  end
-
   private
 
   def get_quote

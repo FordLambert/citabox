@@ -9,13 +9,13 @@
                         <%= link_to @current_user.username, "/users/#{@current_user.id}" %>
         	        </p>
         	        <p>
-                        <%= link_to "Se deconnecter", "/pages/disconnect" %>
+                        <%= link_to "Se deconnecter", "/users/disconnect" %>
                     </p>
                 </div>
 
     	    <% else %>
                 <div class="col-12 align-items-center login-form">
-        	        <%= form_tag "/pages/login", method: :post do %>
+        	        <%= form_tag "/users/login", method: :post do %>
                         <div class="row justify-content-around">
                             <input type="text" name="username" placeholder="nom d'utilisateur" class="col-3 form-control">
                             <input type="password" name="password" placeholder="mot de passe" class="col-3 form-control">
