@@ -4,7 +4,7 @@
 
 <% if @current_user %>
   <p>Inscris comme <%= @current_user.username %></p>
-  <%= link_to 'Se deconnecter', action: 'disconnect' %>
+  <%= link_to 'Se deconnecter', '/pages/disconnect' %>
 <% else %>
 	<p>Se connecter</p>
 	<%= form_tag "/pages/login", method: :post do %>
@@ -16,13 +16,23 @@
 
 <h2>Citations :</h2>
 
-<%= link_to 'Nouvelle citation', action: "create" %>
+<% if @current_user %>
+	<%= link_to 'Nouvelle citation', '/pages/create' %>
+<% else %>
+	<p>connectez vous pour rajouter des citations</p>
+<% end %>
 
 <% if @quotes %>
 	<% @quotes.each do |quote| %>
 		<p><%= quote.content %></p>
 		<p>posté par <%= quote.user.username %></p>
-		<%= link_to 'Modifier', "/pages/#{quote.id}" %>
+
+		<% if @current_user %>
+			<% if quote.user == @current_user || @current_user.role == "admin" %>
+				<%= link_to 'Modifier', "/pages/#{quote.id}" %>
+			<% end %>
+		<% end %>
+
 		<br/>
 	<% end %>
 <% end %>

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  before_action :get_quote, only: [:show, :edit, :update, :destroy]
+  before_action :get_quote, only: [:update, :edit, :destroy]
 
   def home
   	if session[:user_id]
@@ -15,14 +15,13 @@ class PagesController < ApplicationController
   def show
   end
 
-  def edit
-  	@quote = Quote.find(params[:id])
-  end
-
   def update
     @quote.content = params[:content]
     @quote.save
-  	redirect_to "/pages/home"
+    redirect_to "/pages/home"
+  end
+
+  def edit
   end
 
   def destroy

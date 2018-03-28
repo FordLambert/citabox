@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get 'pages/home' => 'pages#home'
   get 'pages/create' => 'pages#create'
-  get 'pages/:id'  => 'pages#edit'
   get 'pages/disconnect' => 'pages#disconnect'
+  get 'pages/:id'  => 'pages#edit'
 
   post 'pages/login' => 'pages#login'
   post 'pages/create' => 'pages#add_quote'
